@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BuissnesLayer.Interfaces
 {
-    public class IOrderRepository
+    public interface IOrderRepository
     {
-        IEnumerable<Directory> GetAllDirectorys(bool includeMaterials = false);
-        Directory GetDirectoryById(int directoryId, bool includeMaterials = false);
-        void SaveDirectory(Directory achieve);
-        void DeleteDirectory(Directory achieve);
+        //IEnumerable<Order> GetAllOrders();
+        //Order GetOrderById(int directoryId, bool includeMaterials = false);
+        //void DeleteOrder(Order achieve);
+        int AddOrder(Order achieve);
     }
 }
