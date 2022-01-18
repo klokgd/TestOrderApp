@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BuissnesLayer.Interfaces
+{
+    public class IOrderRepository
+    {
+        IEnumerable<Directory> GetAllDirectorys(bool includeMaterials = false);
+        Directory GetDirectoryById(int directoryId, bool includeMaterials = false);
+        void SaveDirectory(Directory achieve);
+        void DeleteDirectory(Directory achieve);
+    }
+}
