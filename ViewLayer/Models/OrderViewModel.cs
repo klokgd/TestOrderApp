@@ -2,8 +2,10 @@
 
 namespace ViewLayer.Models
 {
-    public class NewOrderViewModel
+    public class OrderViewModel
     {
+        [Required]
+        public int Id { get; set; }
         [Required]
         public string CityOfSender { get; set; }
         [Required]
