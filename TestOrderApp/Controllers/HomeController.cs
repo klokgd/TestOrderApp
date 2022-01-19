@@ -44,8 +44,8 @@ namespace TestOrderApp.Controllers
         [HttpPost]
         public string Index(NewOrderViewModel newOrderVM)
         {
-            _servicesManager.Order.SaveOrderModelToDB(newOrderVM);
-            return "Спасибо за покупку!";
+            var orderId = _servicesManager.Order.SaveOrderModelToDB(newOrderVM);
+            return $"Спасибо за покупку! Ваш номер заказа: {orderId}";
 
             //return RedirectToAction("Index"/*, "Page", new { pageId = newOrderVM.Id, pageType = PageType.Directory }*/);
         }

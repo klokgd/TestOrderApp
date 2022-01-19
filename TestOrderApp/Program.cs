@@ -5,13 +5,8 @@ using BuissnesLayer.Implemenation;
 using BuissnesLayer.Interfaces;
 using DataLayer;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
-
-// Add services to the container.
 
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -25,11 +20,10 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddMvc();
-        
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

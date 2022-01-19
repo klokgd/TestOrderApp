@@ -1,12 +1,6 @@
 ﻿using BuissnesLayer;
 using BuissnesLayer.Implemenation;
-using BuissnesLayer.Interfaces;
 using DataLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ViewLayer.Models;
 
 namespace ViewLayer.Service
