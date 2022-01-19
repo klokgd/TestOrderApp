@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BuissnesLayer.Implemenation
 {
-    internal class EFOrderRepository : IOrderRepository
+    public class EFOrderRepository : IOrderRepository
     {
         private EFDBContext _context;
 
