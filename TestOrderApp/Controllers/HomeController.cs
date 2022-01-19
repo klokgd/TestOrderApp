@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BuissnesLayer;
+using BuissnesLayer.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TestOrderApp.Models;
+using ViewLayer;
+using ViewLayer.Models;
 
 namespace TestOrderApp.Controllers
 {
@@ -8,9 +12,17 @@ namespace TestOrderApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private DataManager _dataManager;
+        private ServicesManager _servicesManager;
+        private IOrderRepository _orderRepository;
+
+
+
+        public HomeController(ILogger<HomeController> logger, DataManager dataManager)
         {
+            _dataManager = dataManager;
             _logger = logger;
+            _servicesManager = new ServicesManager(_dataManager);
         }
 
         public IActionResult Index()
@@ -28,5 +40,15 @@ namespace TestOrderApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public string Index(NewOrderViewModel newOrderVM)
+        {
+            var orderId = _servicesManager.Order.SaveOrderModelToDB(newOrderVM);
+            return $"Спасибо за покупку! Ваш номер заказа: {orderId}";
+
+            //return RedirectToAction("Index"/*, "Page", new { pageId = newOrderVM.Id, pageType = PageType.Directory }*/);
+        }
+
     }
 }

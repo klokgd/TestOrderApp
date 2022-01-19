@@ -1,16 +1,21 @@
-﻿@{
+﻿@using ViewLayer.Models;
+@model NewOrderViewModel
+@{
     ViewData["Title"] = "Приём заказа";
-}
+    var _currentModel = (NewOrderViewModel)Model;
 
-<form style="margin: 0 auto; width:450px; text-align: center;">
+
+
+<form style="margin: 0 auto; width:450px; text-align: center;" method="post">
     <h1 style="padding-bottom: 20px;">Форма приёма заказа</h1>
     <ul>
-    <li><input name="CityOfSender" placeholder="Введите город отправления"/></li>
-    <li><input name="AdressOfSender" placeholder="Введите адрес отправления"/></li>
-    <li><input name="CityOfRecepient" placeholder="Введите город получателя"/></li>
-    <li><input name="AdressOfRecepient" placeholder="Введите адрес получателя"/></li>
-    <li><input name="GoodsWeight" placeholder="Введите вес груза"/></li>
-    <li><input type=date name="DeliveryDate" placeholder="Введите дату забора груза"/></li>
+    <li><input name="CityOfSender"  required placeholder="Введите город отправления"/></li>
+    <li><input name="AdressOfSender"  required placeholder="Введите адрес отправления"/></li>
+    <li><input name="CityOfRecepient"  required placeholder="Введите город получателя"/></li>
+    <li><input name="AdressOfRecepient"  required placeholder="Введите адрес получателя"/></li>
+    <li><input type="number" name="GoodsWeight"  required placeholder="Введите вес груза"/></li>
+    <li><input type=date name="DeliveryDate"  required placeholder="Введите дату забора груза"/></li>
     <button style="margin-top:20px;">Принять заказ</button>
     </ul>
 </form>
+}

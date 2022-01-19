@@ -1,10 +1,6 @@
 ﻿using BuissnesLayer;
+using BuissnesLayer.Implemenation;
 using DataLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ViewLayer.Models;
 
 namespace ViewLayer.Service
@@ -12,6 +8,7 @@ namespace ViewLayer.Service
     public class OrderService
     {
         private DataManager _dataManager;
+        private EFOrderRepository _order;
 
         public OrderService(DataManager dataManager)
         {

@@ -1,14 +1,9 @@
 ﻿using BuissnesLayer.Interfaces;
 using DataLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuissnesLayer.Implemenation
 {
-    internal class EFOrderRepository : IOrderRepository
+    public class EFOrderRepository : IOrderRepository
     {
         private EFDBContext _context;
 
