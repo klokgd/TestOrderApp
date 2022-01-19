@@ -19,5 +19,10 @@ namespace BuissnesLayer.Implemenation
             return order.Id;
         }
 
+        public List<Order> GetOrders()
+        {
+            return _context.Order.ToList();
+        }
+
     }
 }

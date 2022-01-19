@@ -1,8 +1,8 @@
 ﻿@using ViewLayer.Models;
-@model NewOrderViewModel
+@model IEnumerable<OrderViewModel>
 @{
     ViewData["Title"] = "Приём заказа";
-    var _currentModel = (NewOrderViewModel)Model;
+    }
 
 
 
@@ -18,4 +18,33 @@
     <button style="margin-top:20px;">Принять заказ</button>
     </ul>
 </form>
-}
+
+
+<div style="margin: 0 auto; width:450px; text-align: center;">
+    <h2>Принятые заказы:</h2>
+        <table>
+        <tr>
+            <td>Номер заказа</td>
+            <td>Город отправления</td>
+            <td>Адрес отправления</td>
+            <td>Город получателя</td>
+            <td>Адрес получателя</td>
+            <td>Вес груза</td>
+            <td>Дата забора груза</td>
+            <td></td>
+        </tr>
+        @foreach (var order in Model)
+            {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.CityOfSender</td>
+                <td>@order.AdressOfSender</td>
+                <td>@order.CityOfRecepient</td>
+                <td>@order.AdressOfRecepient</td>
+                <td>@order.GoodsWeight</td>
+                <td>@order.DeliveryDate</td>
+            </tr>
+        }
+    </table>
+    
+</div>

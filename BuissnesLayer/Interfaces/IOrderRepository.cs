@@ -6,5 +6,6 @@ namespace BuissnesLayer.Interfaces
     {
       
         int AddOrder(Order achieve);
+        List<Order> GetOrders();
     }
 }

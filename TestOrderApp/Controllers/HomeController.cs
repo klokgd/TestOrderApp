@@ -27,7 +27,7 @@ namespace TestOrderApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(_servicesManager.Order.GetOrderVMToList());
         }
 
         public IActionResult Privacy()
@@ -42,7 +42,7 @@ namespace TestOrderApp.Controllers
         }
 
         [HttpPost]
-        public string Index(NewOrderViewModel newOrderVM)
+        public string Index(OrderViewModel newOrderVM)
         {
             var orderId = _servicesManager.Order.SaveOrderModelToDB(newOrderVM);
             return $"Спасибо за покупку! Ваш номер заказа: {orderId}";

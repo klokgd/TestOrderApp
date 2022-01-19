@@ -15,7 +15,7 @@ namespace ViewLayer.Service
             _dataManager = dataManager;
         }
 
-        public int SaveOrderModelToDB(NewOrderViewModel newOrderViewModel)
+        public int SaveOrderModelToDB(OrderViewModel newOrderViewModel)
         {
             Order order = new Order();
             order.AdressOfRecepient = newOrderViewModel.AdressOfRecepient;
@@ -27,5 +27,12 @@ namespace ViewLayer.Service
 
             return _dataManager.Order.AddOrder(order);
         }
+
+        public List<OrderViewModel> GetOrderVMToList()
+        {
+            var orders = _dataManager.Order.GetOrders();
+            return CustomMapper.GetInstance().Map<List<OrderViewModel>>(orders);
+        }
+
     }
 }
